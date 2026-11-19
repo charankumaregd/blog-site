@@ -1,70 +1,103 @@
-# Getting Started with Create React App
+# Blog Site
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A blog application built using React, React Router, Axios, and Tailwind CSS, with a REST API for managing blog posts.
 
-## Available Scripts
+## Features
 
-In the project directory, you can run:
+- **Post Feed:** Browse blog posts with titles, dates, and descriptions.
+- **Article View:** Read individual blog posts.
+- **Create Posts:** Add new blog posts through a form.
+- **Edit Posts:** Update existing blog post content.
+- **Delete Posts:** Remove blog posts.
+- **Client-Side Routing:** Navigate between pages using React Router.
+- **About Page:** A separate page with information about the application.
+- **404 Page:** Handles unknown routes.
 
-### `npm start`
+## Technologies Used
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- React
+- JavaScript
+- React Router
+- Axios
+- Tailwind CSS
+- JSON Server
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Getting Started
 
-### `npm test`
+### Prerequisites
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- Node.js
+- npm
 
-### `npm run build`
+### Installation
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+1. Clone the repository:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+   ```bash
+   git clone https://github.com/charankumaregd/blog-site.git
+   cd blog-site
+   ```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+2. Install dependencies:
 
-### `npm run eject`
+   ```bash
+   npm install
+   ```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### Running the Application
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+The application uses a local REST API powered by JSON Server.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+1. Start the mock API server in a terminal:
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+   ```bash
+   npx json-server --watch src/db/posts.json --port 3500
+   ```
 
-## Learn More
+2. Open another terminal and start the React application:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+   ```bash
+   npm start
+   ```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+3. Open `http://localhost:3000` in your browser.
 
-### Code Splitting
+## Project Structure
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+```text
+blog-site/
+├── public/
+├── src/
+│   ├── api/
+│   │   ├── Axios.js
+│   │   └── crud.js
+│   ├── components/
+│   │   ├── Footer.jsx
+│   │   ├── Header.jsx
+│   │   ├── Navbar.jsx
+│   │   └── Post.jsx
+│   ├── db/
+│   │   └── posts.json
+│   ├── pages/
+│   │   ├── About.js
+│   │   ├── EditPost.js
+│   │   ├── Home.js
+│   │   ├── NewPost.js
+│   │   ├── NotFound.js
+│   │   └── Post.js
+│   ├── App.js
+│   ├── Layout.js
+│   ├── index.css
+│   └── index.js
+├── package.json
+├── package-lock.json
+├── tailwind.config.js
+└── README.md
+```
 
-### Analyzing the Bundle Size
+## Implementation Notes
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- React Router handles client-side navigation and nested routes.
+- Axios is used to communicate with the REST API.
+- JSON Server provides a local mock backend for storing blog posts.
+- Blog post data is maintained in `src/db/posts.json`.
